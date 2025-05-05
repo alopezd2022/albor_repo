@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="gripper" params="third_bone_link prefix">
+
+        <link name="${prefix}base_gripper_link">
+            <collision name="base_gripper_collision">
+                <origin rpy="-0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.012.dae" scale="0.07500 0.07500 0.20000"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="0.05792" ixy="-0.00000" ixz="0.00000" iyy="0.15247" iyz="0.00000" izz="0.11022"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <mass value="1.00000"/>
+            </inertial>
+                <visual name="base_gripper">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.012.dae" scale="0.07500 0.07500 0.20000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}gripper_1_link">
+            <collision name="gripper_1_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.011.dae" scale="0.05000 0.10000 0.20000"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="0.01667" ixy="0.00000" ixz="0.00000" iyy="0.01417" iyz="0.00000" izz="0.00417"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <mass value="0.50000"/>
+            </inertial>
+            <visual name="gripper_1">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.011.dae" scale="0.05000 0.10000 0.20000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}gripper_2_link">
+            <collision name="gripper_2_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.010.dae" scale="0.05000 0.10000 0.20000"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="0.01667" ixy="0.00000" ixz="0.00000" iyy="0.01417" iyz="0.00000" izz="0.00417"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                <mass value="0.50000"/>
+            </inertial>
+            <visual name="gripper_2">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.010.dae" scale="0.05000 0.10000 0.20000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <joint name="${prefix}gripper_1_joint" type="prismatic">
+            <limit lower="0.00000" upper="0.07000" effort="5000.00000" velocity="10.00000"/>
+            <origin rpy="3.14159 0.00000 0.00000" xyz="-0.35000 0.00000 0.30000"/>
+            <parent link="${prefix}base_gripper_link"/>
+            <child link="${prefix}gripper_1_link"/>
+            <axis xyz="1.00000 0.00000 0.00000"/>
+        </joint>
+
+        <joint name="${prefix}gripper_2_joint" type="prismatic">
+            <limit lower="-0.07000" upper="0.00000" effort="5000.00000" velocity="10.00000"/>
+            <origin rpy="3.14159 0.00000 0.00000" xyz="0.35000 0.00000 0.30000"/>
+            <parent link="${prefix}base_gripper_link"/>
+            <child link="${prefix}gripper_2_link"/>
+            <axis xyz="1.00000 0.00000 0.00000"/>
+        </joint>        
+        
+        <joint name="${prefix}base_gripper_joint" type="revolute">
+            <limit lower="-3.14000" upper="3.14000" effort="100.00000" velocity="10.00000"/>
+            <origin rpy="-3.14159 0.00000 0.00000" xyz="0.00000 0.00000 -2.35000"/>
+            <parent link= "${third_bone_link}"/>
+            <child link="${prefix}base_gripper_link"/>
+            <axis xyz="0.00000 0.00000 1.00000"/>
+        </joint>
+
+    </xacro:macro>
+</robot>

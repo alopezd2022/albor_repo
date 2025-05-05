@@ -1,0 +1,9 @@
+# Default initial positions for albor's ros2_control fake system
+
+initial_positions:
+  base_gripper_joint: 0
+  first_bone_joint: 0
+  gripper_1_joint: 0
+  gripper_2_joint: 0
+  second_bone_joint: 0
+  third_bone_joint: 0

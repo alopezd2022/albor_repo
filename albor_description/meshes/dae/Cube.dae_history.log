@@ -1,0 +1,3 @@
+Instantiated with filepath=None->None, scale=[0.30000001192092896, 0.30000001192092896, 0.10000000149011612], mesh=<bpy_struct, Mesh("Cube") at 0x7592d9f20008>, meshname=Cube, material=None, mesh_orientation=None, {}
+->trying export of <bpy_struct, Mesh("Cube") at 0x7592d9f20008> to /home/alumnos/albalop/MSR/p3/phobos-models/Rover/meshes/dae/Cube.dae
+->wrote dae to /home/alumnos/albalop/MSR/p3/phobos-models/Rover/meshes/dae/Cube.dae from bpy_types.Mesh

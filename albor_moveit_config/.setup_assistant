@@ -1,0 +1,27 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: albor_description
+    relative_path: robots/albor.urdf.xacro
+  srdf:
+    relative_path: config/albor.srdf
+  package_settings:
+    author_name: Alba López del Águila
+    author_email: a.lopezd.2022@alumnos.ujrc.es
+    generated_timestamp: 1745834128
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+      - effort
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+      - effort

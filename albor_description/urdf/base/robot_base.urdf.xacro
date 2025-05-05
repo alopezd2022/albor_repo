@@ -1,0 +1,496 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="robot_base" params="prefix">
+
+        <link name="${prefix}base_link">
+            <visual name="base">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <box size="0.01 0.01 0.01"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}base_footprint">
+            <visual name="base_footprint">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <box size="0.01 0.01 0.01"/>
+                </geometry>
+            </visual>
+        </link>
+    
+        <link name="${prefix}compartment_link">
+            <collision name="Compartment_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00935"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.009.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="14.85240" ixy="0.00000" ixz="-0.00000" iyy="5.62035" iyz="1.28487" izz="18.14634"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.07143 -0.01152"/>
+                <mass value="100.00000"/>
+            </inertial>
+            <visual name="Compartment">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <material name="Material.001"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.009.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}cube_link">
+            <collision name="Cube.001_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="-0.43290 -0.00774 0.06554"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.017.dae" scale="0.43290 0.30000 0.01613"/>
+                </geometry>
+            </collision>
+            <collision name="Cube.002_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.43290 -0.00774 0.06554"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.018.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </collision>
+            <collision name="Cube.003_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -1.50774 0.06554"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.019.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </collision>
+            <collision name="Cube_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.01774 -0.09446"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.013.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="369.24508" ixy="0.00000" ixz="0.00000" iyy="18.02609" iyz="0.00000" izz="386.00741"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.01267 -0.08703"/>
+                <mass value="300.00000"/>
+            </inertial>
+            <visual name="Cube">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.01267 -0.08703"/>
+                <material name="Material"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.013.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </visual>
+            <visual name="Cube.001">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="-0.43290 -0.00755 0.07426"/>
+                <material name="Material"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.017.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </visual>
+            <visual name="Cube.002">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.43290 -0.00755 0.07426"/>
+                <material name="Material"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.018.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </visual>
+            <visual name="Cube.003">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -1.50755 0.07495"/>
+                <material name="Material"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.019.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <!-- left part-->
+        <link name="${prefix}left_axis_link">
+            <collision name="left_axis_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.005.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="0.01242" ixy="0.00000" ixz="0.00000" iyy="0.08273" iyz="-0.00000" izz="0.08273"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <mass value="10.00000"/>
+            </inertial>
+            <visual name="left_axis">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <material name="Material.002"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.005.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </visual>
+        </link>
+
+            <link name="${prefix}left_back_axis_link">
+                <collision name="left_back_axis_collision">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00545 0.00000 0.00000"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.008.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </collision>
+                <inertial>
+                    <inertia ixx="10.40604" ixy="0.00000" ixz="-0.00000" iyy="5.00821" iyz="5.19698" izz="5.40653"/>
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                    <mass value="20.00000"/>
+                </inertial>
+                <visual name="left_back_axis">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                    <material name="Material.004"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.008.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </visual>
+            </link>
+                <link name="${prefix}left_back_link">
+                    <collision name="left_back_collision">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <geometry>
+                            <mesh filename="package://albor_description/meshes/dae/Cylinder.004.dae" scale="0.10000 0.10000 0.15000"/>
+                        </geometry>
+                    </collision>
+                    <inertial>
+                        <inertia ixx="0.05000" ixy="0.00000" ixz="0.00000" iyy="0.10000" iyz="0.00000" izz="0.10000"/>
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <mass value="10.00000"/>
+                    </inertial>
+                    <visual name="left_back">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <material name="Material.003"/>
+                        <geometry>
+                            <cylinder radius="0.10000" length="0.30000"/>
+                        </geometry>
+                    </visual>
+                </link>
+
+            <link name="${prefix}left_front_axis_link">
+                <collision name="left_front_axis_collision">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00007 0.00000 0.00000"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.007.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </collision>
+                <inertial>
+                    <inertia ixx="10.40604" ixy="-0.00000" ixz="-0.00000" iyy="5.00821" iyz="-5.19698" izz="5.40653"/>
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                    <mass value="20.00000"/>
+                </inertial>
+                <visual name="left_front_axis">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                    <material name="Material.006"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.007.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </visual>
+            </link>
+                <link name="${prefix}left_front_link">
+                    <collision name="left_front_collision">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                        <geometry>
+                            <mesh filename="package://albor_description/meshes/dae/Cylinder.001.dae" scale="0.10000 0.10000 0.15000"/>
+                        </geometry>
+                    </collision>
+                    <inertial>
+                        <inertia ixx="0.05000" ixy="0.00000" ixz="0.00000" iyy="0.10000" iyz="0.00000" izz="0.10000"/>
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <mass value="10.00000"/>
+                    </inertial>
+                    <visual name="left_front">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                        <material name="Material.005"/>
+                        <geometry>
+                            <cylinder radius="0.10000" length="0.30000"/>
+                        </geometry>
+                    </visual>
+                </link>
+
+            <link name="${prefix}left_mid_axis_link">
+                <collision name="left_mid_axis_collision">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00727 0.00000 0.00000"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.006.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </collision>
+                <inertial>
+                    <inertia ixx="2.82909" ixy="-0.00000" ixz="-0.00000" iyy="2.73667" iyz="-0.47955" izz="0.10154"/>
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                    <mass value="20.00000"/>
+                </inertial>
+                <visual name="left_mid_axis">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                    <material name="Material.008"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.006.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </visual>
+            </link>
+                <link name="${prefix}left_mid_link">
+                    <collision name="left_mid_collision">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                        <geometry>
+                            <mesh filename="package://albor_description/meshes/dae/Cylinder.002.dae" scale="0.10000 0.10000 0.15000"/>
+                        </geometry>
+                    </collision>
+                    <inertial>
+                        <inertia ixx="0.05000" ixy="0.00000" ixz="0.00000" iyy="0.10000" iyz="0.00000" izz="0.10000"/>
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <mass value="10.00000"/>
+                    </inertial>
+                    <visual name="left_mid">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <material name="Material.007"/>
+                        <geometry>
+                            <cylinder radius="0.10000" length="0.30000"/>
+                        </geometry>
+                    </visual>
+                </link>
+
+        <!-- right part -->
+        <link name="${prefix}right_axis_link">
+            <collision name="right_axis_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00606 0.00000 -0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.001.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="0.01242" ixy="-0.00000" ixz="-0.00000" iyy="0.08273" iyz="0.00000" izz="0.08273"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <mass value="10.00000"/>
+            </inertial>
+            <visual name="right_axis">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <material name="Material.009"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.001.dae" scale="0.43290 0.50000 0.01613"/>
+                </geometry>
+            </visual>
+        </link>
+            <link name="${prefix}right_back_axis_link">
+                <collision name="right_back_axis_collision">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00667 0.00000 0.00000"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.004.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </collision>
+                <inertial>
+                    <inertia ixx="10.40604" ixy="0.00000" ixz="-0.00000" iyy="5.00821" iyz="5.19698" izz="5.40653"/>
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                    <mass value="20.00000"/>
+                </inertial>
+                <visual name="right_back_axis">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                    <material name="Material.011"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.004.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </visual>
+            </link>
+                <link name="${prefix}right_back_link">
+                    <collision name="right_back_collision">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                        <geometry>
+                            <mesh filename="package://albor_description/meshes/dae/Cylinder.005.dae" scale="0.10000 0.10000 0.15000"/>
+                        </geometry>
+                    </collision>
+                    <inertial>
+                        <inertia ixx="0.05000" ixy="0.00000" ixz="0.00000" iyy="0.10000" iyz="0.00000" izz="0.10000"/>
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                        <mass value="10.00000"/>
+                    </inertial>
+                        <visual name="right_back">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                        <material name="Material.010"/>
+                        <geometry>
+                            <cylinder radius="0.10000" length="0.30000"/>
+                        </geometry>
+                    </visual>
+                </link>
+
+            <link name="${prefix}right_front_axis_link">
+                <collision name="right_front_axis_collision">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00545 0.00000 0.00000"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.002.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </collision>
+                <inertial>
+                    <inertia ixx="10.40604" ixy="0.00000" ixz="0.00000" iyy="5.00821" iyz="-5.19698" izz="5.40653"/>
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 -0.00000 0.00000"/>
+                    <mass value="20.00000"/>
+                </inertial>
+                <visual name="right_front_axis">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.00000"/>
+                    <material name="Material.013"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.002.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </visual>
+            </link>
+                <link name="${prefix}right_front_link">
+                    <collision name="right_front_collision">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                        <geometry>
+                            <mesh filename="package://albor_description/meshes/dae/Cylinder.dae" scale="0.10000 0.10000 0.15000"/>
+                        </geometry>
+                        </collision>
+                    <inertial>
+                        <inertia ixx="0.05000" ixy="0.00000" ixz="0.00000" iyy="0.10000" iyz="0.00000" izz="0.10000"/>
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <mass value="10.00000"/>
+                    </inertial>
+                    <visual name="right_front">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <material name="Material.012"/>
+                        <geometry>
+                            <cylinder radius="0.10000" length="0.30000"/>
+                        </geometry>
+                    </visual>
+                </link>
+
+            <link name="${prefix}right_mid_axis_link">
+                <collision name="right_mid_axis_collision">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00727 0.00000 0.00000"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.003.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </collision>
+                <inertial>
+                    <inertia ixx="2.82909" ixy="0.00000" ixz="-0.00000" iyy="2.73667" iyz="0.47955" izz="0.10154"/>
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                    <mass value="20.00000"/>
+                </inertial>
+                <visual name="right_mid_axis">
+                    <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                    <material name="Material.015"/>
+                    <geometry>
+                        <mesh filename="package://albor_description/meshes/dae/Cube.003.dae" scale="0.43290 0.50000 0.01613"/>
+                    </geometry>
+                </visual>
+            </link>
+                <link name="${prefix}right_mid_link">
+                    <collision name="right_mid_collision">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                        <geometry>
+                            <mesh filename="package://albor_description/meshes/dae/Cylinder.003.dae" scale="0.10000 0.10000 0.15000"/>
+                        </geometry>
+                    </collision>
+                        <inertial>
+                        <inertia ixx="0.05000" ixy="0.00000" ixz="0.00000" iyy="0.10000" iyz="0.00000" izz="0.10000"/>
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.00000"/>
+                        <mass value="10.00000"/>
+                    </inertial>
+                        <visual name="right_mid">
+                        <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                        <material name="Material.014"/>
+                        <geometry>
+                            <cylinder radius="0.10000" length="0.30000"/>
+                        </geometry>
+                    </visual>
+                </link>
+
+        <joint name="${prefix}base_footprint_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.0000 1.7800"/>
+            <parent link="${prefix}base_footprint"/>
+            <child link="${prefix}base_link"/>
+        </joint>
+        
+        <joint name="${prefix}base_link_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 -1.57000" xyz="0.00000 0.0000 0.0000"/>
+            <parent link="${prefix}base_link"/>
+            <child link="${prefix}cube_link"/>
+        </joint>
+
+        <joint name="${prefix}compartment_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.96226 0.15490"/>
+            <parent link="${prefix}cube_link"/>
+            <child link="${prefix}compartment_link"/>
+        </joint>
+
+        <joint name="${prefix}left_axis_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.60606 -0.03774 0.08554"/>
+            <parent link="${prefix}cube_link"/>
+            <child link="${prefix}left_axis_link"/>
+        </joint>
+        
+        <joint name="${prefix}left_back_axis_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="-0.06061 0.70000 -0.65000"/>
+            <parent link="${prefix}left_axis_link"/>
+            <child link="${prefix}left_back_axis_link"/>
+        </joint>
+
+        <joint name="${prefix}left_back_joint" type="fixed">
+            <origin rpy="0.00000 1.57080 0.00000" xyz="0.10455 0.65000 -0.70000"/>
+            <parent link="${prefix}left_back_axis_link"/>
+            <child link="${prefix}left_back_link"/>
+        </joint>
+
+        <joint name="${prefix}left_front_axis_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.06061 -0.70000 -0.65000"/>
+            <parent link="${prefix}left_axis_link"/>
+            <child link="${prefix}left_front_axis_link"/>
+        </joint>
+            
+        <joint name="${prefix}left_front_joint" type="fixed">
+            <origin rpy="0.00000 1.57080 0.00000" xyz="0.08333 -0.70000 -0.70000"/>
+            <parent link="${prefix}left_front_axis_link"/>
+            <child link="${prefix}left_front_link"/>
+        </joint>
+
+        <joint name="${prefix}left_mid_axis_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.12121 -0.10000 -0.65000"/>
+            <parent link="${prefix}left_axis_link"/>
+            <child link="${prefix}left_mid_axis_link"/>
+        </joint>
+        
+        <joint name="${prefix}left_mid_joint" type="fixed">
+            <origin rpy="0.00000 1.57080 0.00000" xyz="0.07273 -0.10000 -0.70000"/>
+            <parent link="${prefix}left_mid_axis_link"/>
+            <child link="${prefix}left_mid_link"/>
+        </joint>
+
+        <joint name="${prefix}right_axis_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="-0.60606 -0.03774 0.08554"/>
+            <parent link="${prefix}cube_link"/>
+            <child link="${prefix}right_axis_link"/>
+        </joint>
+
+        <joint name="${prefix}right_back_axis_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="-0.06061 0.70000 -0.65000"/>
+            <parent link="${prefix}right_axis_link"/>
+            <child link="${prefix}right_back_axis_link"/>
+        </joint>
+
+        <joint name="${prefix}right_back_joint" type="fixed">
+            <origin rpy="0.00000 1.57080 0.00000" xyz="-0.08333 0.65000 -0.70000"/>
+            <parent link="${prefix}right_back_axis_link"/>
+            <child link="${prefix}right_back_link"/>
+        </joint>
+
+        <joint name="${prefix}right_front_axis_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.06061 -0.70000 -0.65000"/>
+            <parent link="${prefix}right_axis_link"/>
+            <child link="${prefix}right_front_axis_link"/>
+        </joint>
+
+        <joint name="${prefix}right_front_joint" type="fixed">
+            <origin rpy="0.00000 1.57080 0.00000" xyz="-0.10455 -0.70000 -0.70000"/>
+            <parent link="${prefix}right_front_axis_link"/>
+            <child link="${prefix}right_front_link"/>
+        </joint>
+
+        <joint name="${prefix}right_mid_axis_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="-0.12121 0.10000 -0.65000"/>
+            <parent link="${prefix}right_axis_link"/>
+            <child link="${prefix}right_mid_axis_link"/>
+        </joint>
+
+        <joint name="${prefix}right_mid_joint" type="fixed">
+            <origin rpy="0.00000 1.57080 0.00000" xyz="-0.07273 0.10000 -0.70000"/>
+            <parent link="${prefix}right_mid_axis_link"/>
+            <child link="${prefix}right_mid_link"/>
+        </joint>
+    </xacro:macro>
+</robot>

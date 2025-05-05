@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="scara" params="init_pose compartment_link prefix">
+
+        <link name="${prefix}base_arm_link">
+            <collision name="base_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.dae" scale="0.30000 0.30000 0.10000"/>
+                </geometry>
+            </collision>
+            <visual name="base">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <material name="Material.022"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cube.dae" scale="0.30000 0.30000 0.10000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}first_bone_link">
+            <collision name="first_bone_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 0.50000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cylinder.008.dae" scale="0.10000 0.10000 0.50000"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="0.02484" ixy="-0.00000" ixz="-0.00000" iyy="0.42909" iyz="0.00000" izz="0.42909"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="-0.00000 0.00000 0.50000"/>
+                <mass value="5.00000"/>
+            </inertial>
+            <visual name="first_bone">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.50000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cylinder.008.dae" scale="0.10000 0.10000 0.50000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}first_support_link">
+            <collision name="first_support_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Sphere.dae" scale="0.20000 0.20000 0.20000"/>
+                </geometry>
+            </collision>
+            <visual name="first_support">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Sphere.dae" scale="0.20000 0.20000 0.20000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}second_bone_link">
+            <collision name="second_bone_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.75000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cylinder.007.dae" scale="0.10000 0.10000 0.75000"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="1.32989" ixy="-0.00000" ixz="-0.00000" iyy="0.03478" iyz="-0.00000" izz="1.32989"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.75000"/>
+                <mass value="7.00000"/>
+            </inertial>
+            <visual name="second_bone">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 -0.00000 -0.75000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cylinder.007.dae" scale="0.10000 0.10000 0.75000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}second_support_link">
+            <collision name="second_support_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Sphere.003.dae" scale="0.10000 0.10000 0.10000"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="0.07613" ixy="-0.00000" ixz="0.00000" iyy="0.07613" iyz="-0.00000" izz="0.01291"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <mass value="3.00000"/>
+            </inertial>
+            <visual name="second_support">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Sphere.003.dae" scale="0.10000 0.10000 0.10000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <link name="${prefix}third_bone_link">
+            <collision name="third_bone_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -1.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cylinder.006.dae" scale="0.10000 0.10000 1.00000"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="2.68654" ixy="-0.00000" ixz="0.00000" iyy="2.68654" iyz="-0.00000" izz="0.03974"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -1.00000"/>
+                <mass value="5.00000"/>
+            </inertial>
+            <visual name="third_bone">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 -1.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Cylinder.006.dae" scale="0.10000 0.10000 1.00000"/>
+                </geometry>
+            </visual>
+          </link>
+
+        <link name="${prefix}third_support_link">
+            <collision name="third_support_collision">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Sphere.001.dae" scale="0.15000 0.15000 0.15000"/>
+                </geometry>
+            </collision>
+            <inertial>
+                <inertia ixx="0.02674" ixy="-0.00000" ixz="0.00000" iyy="0.02674" iyz="-0.00000" izz="0.02666"/>
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <mass value="3.00000"/>
+            </inertial>
+            <visual name="third_support">
+                <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.00000"/>
+                <geometry>
+                    <mesh filename="package://albor_description/meshes/dae/Sphere.001.dae" scale="0.15000 0.15000 0.15000"/>
+                </geometry>
+            </visual>
+        </link>
+
+        <joint name="${prefix}base_arm_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.38065"/>
+            <parent link="${compartment_link}"/>
+            <child link="${prefix}base_arm_link"/>
+        </joint>
+
+        <joint name="${prefix}first_support_joint" type="fixed">
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 0.45000"/>
+            <parent link="${prefix}base_arm_link"/>
+            <child link="${prefix}first_support_link"/>
+        </joint>
+
+        <joint name="${prefix}first_bone_joint" type="revolute">
+            <limit lower="-3.14000" upper="1.57000" effort="500.00000" velocity="10.00000"/>
+            <origin rpy="0.00000 1.57080 0.00000" xyz="0.10000 0.00000 0.00000"/>
+            <parent link="${prefix}first_support_link"/>
+            <child link="${prefix}first_bone_link"/>
+            <axis xyz="1.00000 0.00000 0.00000"/>
+        </joint>
+
+        <joint name="${prefix}second_support_joint" type="fixed">
+            <origin rpy="0.00000 -1.57080 0.00000" xyz="-0.15000 -0.00000 1.00000"/>
+            <parent link="${prefix}first_bone_link"/>
+            <child link="${prefix}second_support_link"/>
+        </joint>
+
+        <joint name="${prefix}second_bone_joint" type="revolute">
+            <limit lower="-1.57000" upper="1.57000" effort="500.00000" velocity="10.00000"/>
+            <origin rpy="1.57080 0.00000 0.00000" xyz="0.00000 0.00000 0.10000"/>
+            <parent link="${prefix}second_support_link"/>
+            <child link="${prefix}second_bone_link"/>
+            <axis xyz="0.00000 1.00000 0.00000"/>
+        </joint>
+
+        <joint name="${prefix}third_support_joint" type="fixed">
+            <origin rpy="-1.57080 0.00000 0.00000" xyz="0.00000 0.00000 -1.40000"/>
+            <parent link="${prefix}second_bone_link"/>
+            <child link="${prefix}third_support_link"/>
+        </joint>
+
+        <joint name="${prefix}third_bone_joint" type="prismatic">
+            <limit lower="-2.10000" upper="0.00000" effort="500.00000" velocity="10.00000"/>
+            <origin rpy="0.00000 0.00000 0.00000" xyz="0.00000 0.00000 ${init_pose}"/>
+            <parent link="${prefix}third_support_link"/>
+            <child link="${prefix}third_bone_link"/>
+            <axis xyz="0.00000 0.00000 1.00000"/>
+        </joint>
+        
+    </xacro:macro>
+</robot>
